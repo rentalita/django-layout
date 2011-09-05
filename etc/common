@@ -1,0 +1,87 @@
+SQLITE3=$(which sqlite3)
+export SQLITE3
+
+SQLITE3FLAGS=
+export SQLITE3FLAGS
+
+PYTHON="$(which python)"
+export PYTHON
+
+PYTHONFLAGS="-tt"
+
+if [ ! "${@OVID@_DEBUG}" = "" ]; then
+    PYTHONFLAGS="${PYTHONFLAGS} -m pdb"
+fi
+
+export PYTHONFLAGS
+
+PYLINT="$(which pylint)"
+export PYLINT
+
+PYLINTFLAGS=
+export PYLINTFLAGS
+
+NOSETESTS="$(which nosetests)"
+export NOSETESTS
+
+NOSETESTSFLAGS="--with-coverage --cover-erase --cover-html"
+export NOSETESTSFLAGS
+
+DJANGO_SETTINGS_MODULE="@ovid@.settings"
+
+if [ ! "${@OVID@_TESTS}" = "" ]; then
+    DJANGO_SETTINGS_MODULE="@ovid@.tests.settings"
+fi
+
+export DJANGO_SETTINGS_MODULE
+
+@OVID@_HOME=$(cd "${@OVID@_HOME}"; pwd)
+export @OVID@_HOME
+
+@OVID@_BIN="${@OVID@_HOME}"/bin
+export @OVID@_BIN
+
+@OVID@_ETC="${@OVID@_HOME}"/etc
+export @OVID@_ETC
+
+@OVID@_LIB="${@OVID@_HOME}"/lib
+export @OVID@_LIB
+
+@OVID@_SRC="${@OVID@_HOME}"/src
+export @OVID@_SRC
+
+@OVID@_VAR="${@OVID@_HOME}"/var
+export @OVID@_VAR
+
+@OVID@_DATA="${@OVID@_VAR}"/data
+export @OVID@_DATA
+
+@OVID@_DB="${@OVID@_VAR}"/db
+export @OVID@_DB
+
+@OVID@_LOG="${@OVID@_VAR}"/log
+export @OVID@_LOG
+
+@OVID@_RUN="${@OVID@_VAR}"/run
+export @OVID@_RUN
+
+@OVID@_WWW="${@OVID@_VAR}"/www
+export @OVID@_WWW
+
+PYTHONPATH="${@OVID@_LIB}"/python:"${PYTHONPATH}"
+export PYTHONPATH
+
+@OVID@_PYTHONFLAGS=
+export @OVID@_PYTHONFLAGS
+
+@OVID@_PYLINTFLAGS=--rcfile="${@OVID@_ETC}"/pylintrc
+export @OVID@_PYLINTFLAGS
+
+@OVID@_NOSETESTSFLAGS="--cover-package=@ovid@ -w ${@OVID@_SRC}/python/@ovid@"
+export @OVID@_NOSETESTSFLAGS
+
+# Local Variables:
+# indent-tabs-mode: nil
+# mode: sh
+# End:
+# vim: ai et sw=4 ts=4
