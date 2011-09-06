@@ -30,7 +30,7 @@ This runs `python setup.py develop`.
 
 ## TEST
 
-This uses `nose` to run the unit tests, and enables the built-in
+This uses `nosetests` to run the unit tests, and enables the built-in
 coverage report.
 
     ./tests.sh
@@ -47,6 +47,7 @@ This creates a dummy SSL cert and an initial database. Also,
 ## USAGE
 
     ./bin/lighttpd.sh start
+
     sensible-browser http://localhost:8080
 
     ./bin/lighttpd.sh stop
@@ -58,8 +59,8 @@ There is nothing to install.
 ## DEBUG
 
 Several addtional scripts are provided in `./bin`. For example,
-`./bin/python.sh` allows you to do things like `import example`
-straight from the command-line.
+`python.sh` allows you to do things like `import example` straight
+from the command-line.
 
 ## REQUIREMENTS
 
