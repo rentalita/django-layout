@@ -12,8 +12,10 @@ For example, assuming `example-project` exists on GitHub and contains
 a `master` and `unstable` branch, run these commands to create a new
 Django project on the `unstable` branch.
 
-    wget https://raw.github.com/gist/1196048/django-create-project.sh
+    wget -q -O django-create-project.sh http://goo.gl/Ay9vR
     sh -e ./django-create-project.sh git@github.com:example/example-project.git example
+
+Where `django-create-project.sh` is: https://gist.github.com/1196048
 
 Push the new Django project to GitHub.
 
