@@ -93,7 +93,7 @@ INSTALLED_APPS = (
 )
 
 INSTALLED_APPS += (
-    # TODO: Add more apps.
+    # TODO:
 )
 
 # A sample logging configuration. The only tangible logging
