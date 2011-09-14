@@ -2,6 +2,8 @@
 
 import os
 
+import django.conf.global_settings as DEFAULT_SETTINGS
+
 ADMINS = (
     ('@Ovid@.com', 'webmaster@@ovid@.com'),
 )
@@ -66,6 +68,10 @@ SECRET_KEY =
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
+)
+
+TEMPLATE_CONTEXT_PROCESSORS = DEFAULT_SETTINGS.TEMPLATE_CONTEXT_PROCESSORS + (
+    '@ovid@.context_processors.maintenance_mode',
 )
 
 MIDDLEWARE_CLASSES = (

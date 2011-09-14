@@ -1,22 +1,26 @@
 # -*- coding: utf-8 -*-
 
-from django.shortcuts import render_to_response
 from django.views.decorators.http import require_http_methods
 
+from @ovid@.utils.decorators import \
+    render_to_response_with_context_instance
+
 
 @require_http_methods(['GET'])
+@render_to_response_with_context_instance
 def index(request):
-    return render_to_response('@ovid@-index.tmpl.%s' % (request.LANGUAGE_CODE))
+    return ('@ovid@-index.tmpl.%s' % (request.LANGUAGE_CODE),)
 
 
 @require_http_methods(['GET'])
+@render_to_response_with_context_instance
 def custom404(request):
     try:
         custom404_tmpl = settings.@OVID@_CUSTOM404_TEMPLATE
     except:
         custom404_tmpl = '@ovid@-custom404.tmpl.%s'
 
-    return render_to_response(custom404_tmpl % (request.LANGUAGE_CODE))
+    return (custom404_tmpl % (request.LANGUAGE_CODE),)
 
 # Local Variables:
 # indent-tabs-mode: nil
