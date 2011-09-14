@@ -7,7 +7,7 @@
         <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <link type="text/css" rel="stylesheet"
-          href="/static/bootstrap.min.css">
+          href="/static/bootstrap.css">
     {% ifequal MAINTENCE_MODE "PRODUCTION" %}
       {% include "@ovid@-google-analytics.tmpl" %}
     {% endifequal %}
