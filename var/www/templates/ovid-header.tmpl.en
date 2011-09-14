@@ -8,7 +8,6 @@
     <![endif]-->
     <link type="text/css" rel="stylesheet"
           href="/static/bootstrap.min.css">
-    </script>
     {% ifequal MAINTENCE_MODE "PRODUCTION" %}
       {% include "@ovid@-google-analytics.tmpl" %}
     {% endifequal %}
