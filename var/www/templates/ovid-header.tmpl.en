@@ -8,6 +8,14 @@
     <![endif]-->
     <link type="text/css" rel="stylesheet"
           href="/static/bootstrap.css">
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+      }
+    </style>
+    <script type="text/javascript" language="javascript"
+            src="/libjs/jquery/jquery.js">
+    </script>
     {% ifequal MAINTENCE_MODE "PRODUCTION" %}
       {% include "@ovid@-google-analytics.tmpl" %}
     {% endifequal %}
@@ -24,7 +32,4 @@
         </div>
       </div>
     </div>
-    <br />
-    <br />
-    <br />
     <div class="container">
