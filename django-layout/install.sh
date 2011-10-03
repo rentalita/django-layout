@@ -8,10 +8,7 @@ export @OVID@_TESTS
 
 cd "${@OVID@_HOME}"
 
-TARGET="$@"
-TARGET="${TARGET:-develop}"
-
-"${@OVID@_BIN}"/python.sh setup.py -q ${TARGET}
+"${@OVID@_BIN}"/python.sh setup.py -q install "$@"
 [ $? != 0 ] && echo "ERROR!!!" && exit 1
 
 exit 0

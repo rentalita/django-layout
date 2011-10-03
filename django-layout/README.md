@@ -1,7 +1,7 @@
-@Ovid@ -- A Django project created by Django Layout.
+Django @Ovid@ -- A Django project created by Django Layout.
 ===
 
-@Ovid@ is...
+Django @Ovid@ is...
 
 ## BUILD
 

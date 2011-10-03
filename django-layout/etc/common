@@ -1,3 +1,9 @@
+PACKAGE="python-django-@ovid@"
+export PACKAGE
+
+VERSION="0.0.1"
+export VERSION
+
 SQLITE3=$(which sqlite3)
 export SQLITE3
 
@@ -79,6 +85,12 @@ export @OVID@_PYLINTFLAGS
 
 @OVID@_NOSETESTSFLAGS="--cover-package=@ovid@ -w ${@OVID@_SRC}/python/@ovid@"
 export @OVID@_NOSETESTSFLAGS
+
+if [ ! -f "${@OVID@_HOME}"/setup.cfg ]; then
+    sed -e "s#\@PREFIX\@#${@OVID@_HOME}#g;" \
+        -e "s#\@PACKAGE\@#${PACKAGE}#g;" \
+        "${@OVID@_HOME}"/setup.cfg.in > "${@OVID@_HOME}"/setup.cfg
+fi
 
 # Local Variables:
 # indent-tabs-mode: nil

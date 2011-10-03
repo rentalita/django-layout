@@ -8,13 +8,11 @@ export @OVID@_TESTS
 
 cd "${@OVID@_HOME}"
 
-"${@OVID@_BIN}"/python.sh setup.py -q clean
+"${@OVID@_BIN}"/python.sh setup.py -q clean "$@"
 [ $? != 0 ] && echo "ERROR!!!" && exit 1
 
 find . -name "*~" | xargs rm -f
 find . -name "*.pyc" | xargs rm -f
-rm -f .coverage setup.cfg
-rm -f "${@OVID@_LIB}"/python/*
 
 exit 0
 
