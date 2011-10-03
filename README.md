@@ -9,10 +9,9 @@ layout with built-in support for:
  * [jQuery](http://jquery.com/)
  * [Bootstrap](http://twitter.github.com/bootstrap/)
 
-## CREATE (OR UPDATE) DJANGO PROJECT
+## CREATE (OR UPDATE) A DJANGO PROJECT
 
-    django-layout.sh project_name
-    django-layout.sh path/to/project_name
+    django-layout.sh project_name [or path/to/project_name]
 
 Where "project_name" follows the usual rules imposed on Python
 variable names.
@@ -21,7 +20,7 @@ variable names.
 
 Consult the
 [README.md](https://github.com/software6/django-layout/blob/master/django-layout/README.md)
-created django-layout.sh.
+created by django-layout.sh.
 
 ## CONTRIBUTE
 
