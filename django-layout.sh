@@ -22,6 +22,8 @@ LOWER_NAME="$(echo "${LOWER_NAME}" | perl -pe '$_ = lc;')"
 UPPER_NAME="$(echo "${LOWER_NAME}" | perl -pe '$_ = uc;')"
 FIRST_NAME="$(echo "${LOWER_NAME}" | perl -pe '$_ = ucfirst;')"
 
+RETURN_TO="$(pwd)"
+
 cd "${PROJECT_TEMP}"
 
 find . -type f -print0 | xargs -0 perl -pi -e "s/\@OVID\@/${UPPER_NAME}/g;"
@@ -54,7 +56,7 @@ done
 
 ./bin/update-secret-key.sh
 
-cd "${DJANGO_LAYOUT_HOME}"
+cd "${RETURN_TO}"
 
 mkdir "${PROJECT_PATH}" 2> /dev/null
 
