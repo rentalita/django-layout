@@ -15,7 +15,7 @@ This uses `nosetests` to run the unit tests, and enables the built-in
 coverage report.
 
     ./tests.sh
-    sensible-browser ./src/python/example/cover/index.html
+    sensible-browser ./src/python/@ovid@/cover/index.html
 
 ## SETUP
 
