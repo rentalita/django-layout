@@ -13,8 +13,8 @@ fi
 PROJECT_NAME="$(basename "${PROJECT_PATH}")"
 PROJECT_TEMP="$(mktemp -d)"
 
-tar -C "${DJANGO_LAYOUT_TMPL}" -cf - $(cd "${DJANGO_LAYOUT_TMPL}"; find .) \
-    | $(tar -C "${PROJECT_TEMP}" -xf -)
+tar -C "${DJANGO_LAYOUT_TMPL}" -cf - $(cd "${DJANGO_LAYOUT_TMPL}"; find .) | \
+    $(tar -C "${PROJECT_TEMP}" -xf -)
 
 LOWER_NAME="${PROJECT_NAME}"
 
@@ -60,5 +60,5 @@ cd "${RETURN_TO}"
 
 mkdir "${PROJECT_PATH}" 2> /dev/null
 
-tar -C "${PROJECT_TEMP}" -cf - $(cd "${PROJECT_TEMP}"; find .) \
-    | $(tar -C "${PROJECT_PATH}" -xf -)
+tar -C "${PROJECT_TEMP}" -cf - $(cd "${PROJECT_TEMP}"; find .) | \
+    $(tar -C "${PROJECT_PATH}" -xf -)
