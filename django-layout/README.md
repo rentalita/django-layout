@@ -44,7 +44,7 @@ the command-line.
 ## REQUIREMENTS
 
 As tested on [Ubuntu 11.04](http://ubuntu.com/). See also [Ubuntu
-Setup](https://github.com/software6/ubuntu-setup)
+Setup](https://github.com/software6/ubuntu-setup).
 
  * [python 2.7](http://www.python.org/)
  * [python-setuptools 0.6](http://packages.python.org/distribute/)
@@ -61,6 +61,14 @@ Setup](https://github.com/software6/ubuntu-setup)
 ## OPTIONAL
 
  * [pylint 0.23](http://www.logilab.org/project/pylint)
+
+## CONTRIBUTE
+
+TODO:
+
+## LICENSE
+
+TODO:
 
 ## CREATED BY
 
