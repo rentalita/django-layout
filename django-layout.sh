@@ -58,7 +58,9 @@ done
 
 cd "${RETURN_TO}"
 
-mkdir "${PROJECT_PATH}" 2> /dev/null
+if [ ! -d "${PROJECT_PATH}" ]; then
+    mkdir "${PROJECT_PATH}"
+fi
 
 tar -C "${PROJECT_TEMP}" -cf - $(cd "${PROJECT_TEMP}"; find .) | \
     $(tar -C "${PROJECT_PATH}" -xf -)
