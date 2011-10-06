@@ -11,12 +11,14 @@ This runs `python setup.py develop` (more or less).
 
     # Create a dummy SSL certificate.
     ./bin/make-ssl-cert.sh
-    # Create an initial database. Re-run each time the models change.
-    ./bin/django-migrate.sh
 
     ./bin/lighttpd.sh start
     sensible-browser http://localhost:8080
     ./bin/lighttpd.sh stop
+
+Then, later on, each time a model changes run:
+
+    ./bin/django-migrate.sh
 
 ## TEST
 
