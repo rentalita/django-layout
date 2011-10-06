@@ -80,10 +80,16 @@ export PYTHONPATH
 @OVID@_PYTHONFLAGS=
 export @OVID@_PYTHONFLAGS
 
-@OVID@_PYLINTFLAGS=--rcfile="${@OVID@_ETC}"/pylintrc
+@OVID@_PYLINTFLAGS="
+    --rcfile=${@OVID@_ETC}/pylintrc
+"
 export @OVID@_PYLINTFLAGS
 
-@OVID@_NOSETESTSFLAGS="--cover-package=@ovid@ -w ${@OVID@_SRC}/python/@ovid@"
+@OVID@_NOSETESTSFLAGS="
+    --cover-html-dir=${@OVID@_HOME}/coverage
+    --cover-package=@ovid@
+    -w ${@OVID@_SRC}/python/@ovid@
+"
 export @OVID@_NOSETESTSFLAGS
 
 if [ ! -f "${@OVID@_HOME}"/setup.cfg ]; then

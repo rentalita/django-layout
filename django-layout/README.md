@@ -9,27 +9,22 @@ This runs `python setup.py develop` (more or less).
 
     ./build.sh
 
+    # Create a dummy SSL certificate.
+    ./bin/make-ssl-cert.sh
+    # Create an initial database. Re-run each time the models change.
+    ./bin/django-migrate.sh
+
+    ./bin/lighttpd.sh start
+    sensible-browser http://localhost:8080
+    ./bin/lighttpd.sh stop
+
 ## TEST
 
 This uses `nosetests` to run the unit tests, and enables the built-in
 coverage report.
 
     ./tests.sh
-    sensible-browser ./src/python/@ovid@/cover/index.html
-
-## SETUP
-
-This creates a dummy SSL cert and an initial database. Also,
-`django-migrate.sh` must be run each time the Django models change.
-
-    ./bin/make-ssl-cert.sh
-    ./bin/django-migrate.sh
-
-## USAGE
-
-    ./bin/lighttpd.sh start
-    sensible-browser http://localhost:8080
-    ./bin/lighttpd.sh stop
+    sensible-browser ./coverage/index.html
 
 ## INSTALL
 
@@ -37,9 +32,13 @@ There is nothing to install.
 
 ## DEBUG
 
-Several addtional scripts are provided in `./bin`. For example,
-`python.sh` allows you to do things like `import @ovid@` straight from
-the command-line.
+The layout used by Django @Ovid@ depends on that a particular
+environment has been setup (see `etc/common`). For this reason several
+wrapper scripts have been provided to help when working on the
+command-line. For example:
+
+    $ ./bin/python.sh
+    >>>
 
 ## REQUIREMENTS
 
@@ -64,11 +63,12 @@ Setup](https://github.com/software6/ubuntu-setup).
 
 ## CONTRIBUTE
 
-TODO:
+TODO: https://github.com/.../django-@ovid@
 
 ## LICENSE
 
-TODO:
+Django @Ovid@ is brought to you by TODO: Who? under the TODO: What?
+License.
 
 ## CREATED BY
 

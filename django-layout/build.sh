@@ -11,6 +11,8 @@ cd "${@OVID@_HOME}"
 TARGET="$@"
 TARGET="${TARGET:-develop}"
 
+"${@OVID@_BIN}"/django-migrate.sh
+
 "${@OVID@_BIN}"/python.sh setup.py -q ${TARGET}
 [ $? != 0 ] && echo "ERROR!!!" && exit 1
 
