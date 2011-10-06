@@ -14,8 +14,7 @@
       }
     </style>
     <script type="text/javascript" language="javascript"
-            src="/libjs/jquery/jquery.js">
-    </script>
+            src="/libjs/jquery/jquery.min.js">
     {% ifequal MAINTENCE_MODE "PRODUCTION" %}
       {% include "@ovid@-google-analytics.tmpl" %}
     {% endifequal %}
