@@ -56,6 +56,8 @@ done
 
 ./bin/update-secret-key.sh
 
+rm -f setup.cfg
+
 cd "${RETURN_TO}"
 
 if [ ! -d "${PROJECT_PATH}" ]; then
