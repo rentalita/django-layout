@@ -5,7 +5,7 @@ import os
 import django.conf.global_settings as DEFAULT_SETTINGS
 
 ADMINS = (
-    ('@Ovid@.com', 'webmaster@@ovid@.com'),
+    ('@Ovid@ Webmaster', 'webmaster@example.com'),
 )
 
 MANAGERS = ADMINS

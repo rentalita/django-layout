@@ -2,7 +2,7 @@
 
     <div class="hero-unit">
       <h1 style="font-size: +3em">
-        <a href="/@ovid@/">@Ovid@.com</a>
+        <a href="/@ovid@/">@Ovid@</a>
         Hola
       </h1>
     </div>
