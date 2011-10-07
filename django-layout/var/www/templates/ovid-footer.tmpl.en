@@ -1,7 +1,7 @@
       <footer>
 
         <p>
-          @Ovid@ in English.
+          @Ovid@ made by <a href="https://github.com/software6/django-layout">Django Layout</a>.
         </p>
 
       </footer>

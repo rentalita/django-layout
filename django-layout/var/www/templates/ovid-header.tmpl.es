@@ -26,7 +26,7 @@
         <div class="container">
           <h3>
             <a href="/@ovid@/">
-              Bienvenido a @Ovid@
+              @Ovid@
             </a>
           </h3>
         </div>
