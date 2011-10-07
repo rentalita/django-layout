@@ -16,6 +16,10 @@ This runs `python setup.py develop` (more or less).
     sensible-browser http://localhost:8080
     ./bin/lighttpd.sh stop
 
+To use the admin site, run (only once):
+
+    ./bin/django-manage.sh createsuperuser
+
 Then, later on, each time a model changes run:
 
     ./bin/django-migrate.sh

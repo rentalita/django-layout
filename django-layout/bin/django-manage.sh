@@ -5,7 +5,10 @@ export @OVID@_HOME
 
 . "${@OVID@_HOME}"/etc/common
 
-"${@OVID@_BIN}"/python.sh "${@OVID@_BIN}"/django-manage.py "$@" --settings="${DJANGO_SETTINGS_MODULE}" -v 0
+TARGET="$@"
+TARGET="${TARGET:-help}"
+
+"${@OVID@_BIN}"/python.sh "${@OVID@_BIN}"/django-manage.py ${TARGET} --settings="${DJANGO_SETTINGS_MODULE}" -v 0
 
 # Local Variables:
 # indent-tabs-mode: nil
