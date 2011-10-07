@@ -1,3 +1,5 @@
+{# -*- html -*- #}
+
 {% include "@ovid@-header.tmpl.en" %}
 
     <div class="hero-unit">
