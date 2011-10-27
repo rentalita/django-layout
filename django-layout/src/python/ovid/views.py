@@ -9,18 +9,18 @@ from @ovid@.utils.decorators import \
 @require_http_methods(['GET'])
 @render_to_response_with_context_instance
 def index(request):
-    return ('@ovid@-index.tmpl.%s' % (request.LANGUAGE_CODE),)
+    return ('@ovid@-index.html',)
 
 
 @require_http_methods(['GET'])
 @render_to_response_with_context_instance
 def custom404(request):
     try:
-        custom404_tmpl = settings.@OVID@_CUSTOM404_TEMPLATE
+        custom404_template = settings.@OVID@_CUSTOM404_TEMPLATE
     except:
-        custom404_tmpl = '@ovid@-custom404.tmpl.%s'
+        custom404_template = '@ovid@-custom404.html'
 
-    return (custom404_tmpl % (request.LANGUAGE_CODE),)
+    return (custom404_template,)
 
 # Local Variables:
 # indent-tabs-mode: nil

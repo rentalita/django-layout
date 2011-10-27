@@ -30,12 +30,12 @@ TIME_ZONE = 'UTC'
 # http://www.i18nguy.com/unicode/language-identifiers.html
 LANGUAGE_CODE = 'en'
 
-_ = lambda x: x
-
 LANGUAGES = (
-    ('en', _(u'English')),
-    ('es', _(u'Español')),
+    ('en', u'English'),
+    ('es', u'Español'),
 )
+
+LOCALE_PATHS = (os.environ['@OVID@_HOME'] + os.sep + 'locale',)
 
 APPEND_SLASH = False
 
@@ -71,6 +71,7 @@ TEMPLATE_LOADERS = (
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = DEFAULT_SETTINGS.TEMPLATE_CONTEXT_PROCESSORS + (
+    'django.core.context_processors.request',
     '@ovid@.context_processors.maintenance_mode',
 )
 
