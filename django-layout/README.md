@@ -9,8 +9,8 @@ This runs `python setup.py develop` (more or less).
 
     ./build.sh
 
-    # Create the initial database.
-    ./bin/django-migrate.sh
+    # Load the development and production sites.
+    # See also: var/data/django-load.json.
     ./bin/django-load.sh
 
     # Create a dummy SSL certificate.
