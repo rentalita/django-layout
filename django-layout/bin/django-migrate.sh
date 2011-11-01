@@ -6,6 +6,7 @@ export @OVID@_HOME
 . "${@OVID@_HOME}"/etc/common
 
 "${@OVID@_BIN}"/django-manage.sh syncdb --noinput
+"${@OVID@_BIN}"/django-manage.sh migrate
 
 # Local Variables:
 # indent-tabs-mode: nil

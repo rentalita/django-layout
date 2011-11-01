@@ -5,7 +5,7 @@ import os
 import django.conf.global_settings as DEFAULT_SETTINGS
 
 ADMINS = (
-    ('@Ovid@ Webmaster', 'webmaster@example.com'),
+    ('@Ovid@ Webmaster', 'webmaster@@ovid@.com'),
 )
 
 MANAGERS = ADMINS
@@ -35,11 +35,11 @@ LANGUAGES = (
     ('es', u'Español'),
 )
 
-LOCALE_PATHS = (os.environ['@OVID@_HOME'] + os.sep + 'locale',)
+LOCALE_PATHS = DEFAULT_SETTINGS.LOCALE_PATHS + (
+    os.environ['@OVID@_HOME'] + os.sep + 'locale',
+)
 
 APPEND_SLASH = False
-
-SITE_ID = 1
 
 # If you set this to False, Django will make some optimizations so as not
 # to load the internationalization machinery.
@@ -84,6 +84,12 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
 )
 
+AUTHENTICATION_BACKENDS = (
+    'userena.backends.UserenaAuthenticationBackend',
+    'guardian.backends.ObjectPermissionBackend',
+    'django.contrib.auth.backends.ModelBackend',
+)
+
 ROOT_URLCONF = '@ovid@.urls'
 
 TEMPLATE_DIRS = (
@@ -97,11 +103,27 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.admin',
+    'easy_thumbnails',
+    'guardian',
+    'south',
+    'userena',
 )
 
 INSTALLED_APPS += (
-    # TODO:
+    '@ovid@.profile',
 )
+
+ANONYMOUS_USER_ID = -1
+
+LOGIN_REDIRECT_URL = '/accounts/%(username)s/'
+LOGIN_URL = '/accounts/signin/'
+LOGOUT_URL = '/accounts/signout/'
+AUTH_PROFILE_MODULE = 'profile.Profile'
+
+USERENA_DEFAULT_PRIVACY = 'closed'
+USERENA_DISABLE_PROFILE_LIST = True
+USERENA_USE_HTTPS = True
+USERENA_WITHOUT_USERNAMES = True
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
