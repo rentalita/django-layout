@@ -32,17 +32,19 @@
                 @Ovid@
               </a>
             </h3>
-            <form id="setlang" method="POST" action="/@ovid@/i18n/setlang/">
+            <form id="setlang" class="form-stacked" method="POST" action="/@ovid@/i18n/setlang/">
               {% csrf_token %}
               <input name="next" type="hidden" value="{{ request.path }}" />
-              <div class="input">
-                <select id="language" name="language" onchange="$('#setlang').submit()">
-                  {% for lang in LANGUAGES %}
-                  <option value="{{ lang.0 }}" {% if LANGUAGE_CODE == lang.0 %}selected{% endif %}>
-                    {{ lang.1 }}
-                  </option>
-                  {% endfor %}
-                </select>
+              <div class="clearfix">
+                <div class="input">
+                  <select id="language" name="language" onchange="$('#setlang').submit()">
+                    {% for lang in LANGUAGES %}
+                    <option value="{{ lang.0 }}" {% if LANGUAGE_CODE == lang.0 %}selected{% endif %}>
+                      {{ lang.1 }}
+                    </option>
+                    {% endfor %}
+                  </select>
+                </div>
               </div>
               <noscript>
                 <input type="submit" value="{% trans "Set language" %}" />
