@@ -2,7 +2,7 @@
     {
         "fields": {
             "domain": "localhost:8443",
-            "name": "localhost:8443"
+            "name": "The @Ovid@ Development Team"
         },
         "model": "sites.site",
         "pk": 1
@@ -10,7 +10,7 @@
     {
         "fields": {
             "domain": "@ovid@.com",
-            "name": "@ovid@.com"
+            "name": "The @Ovid@ Team"
         },
         "model": "sites.site",
         "pk": 2
