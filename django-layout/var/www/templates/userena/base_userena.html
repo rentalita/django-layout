@@ -1,0 +1,19 @@
+{% load i18n %}
+
+{% include "@ovid@-header.html" %}
+
+{% if content_title %}
+<div class="page-header">
+  <h1>
+    {% block content_title %}{% endblock %}
+  </h1>
+</div>
+{% endif %}
+
+<div class="row">
+  <div class="span8">
+    {% block content %}{% endblock %}
+  </div>
+</div>
+
+{% include "@ovid@-footer.html" %}
