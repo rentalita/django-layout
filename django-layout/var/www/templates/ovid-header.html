@@ -31,7 +31,7 @@
             src="/static/bootstrap-modal.js">
     </script>
     {% ifequal MAINTENCE_MODE "PRODUCTION" %}
-    {% include "@ovid@-google-analytics.html" %}
+    {% include "@ovid@-header-google-analytics.html" %}
     {% endifequal %}
   </head>
   <body>
@@ -39,11 +39,9 @@
       <div class="topbar" data-dropdown="dropdown">
         <div class="topbar-inner">
           <div class="container">
-            <h3>
-              <a href="/@ovid@/">
-                @Ovid@
-              </a>
-            </h3>
+            <a class="brand" href="/@ovid@/">
+              @Ovid@
+            </a>
             <form id="setlang" class="form-stacked" method="POST" action="/@ovid@/i18n/setlang/">
               {% csrf_token %}
               <input name="next" type="hidden" value="{{ request.path }}" />
@@ -66,12 +64,12 @@
             <ul class="nav secondary-nav">
               <li>
                 <a href="{% url userena_profile_detail user.username %}">
-                  {% trans "Home" %}
+                  {% trans "Dashboard" %}
                 </a>
               </li>
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle">
-                  {{ user.email }}
+                  {% trans "Settings" %}
                 </a>
                 <ul class="dropdown-menu">
                   <li>
@@ -93,6 +91,15 @@
                 </ul>
               </li>
             </ul>
+            {% else %}
+            <form class="form-stacked pull-right" method="POST" action="#">
+              <a class="btn primary" href="{% url userena_signin %}">
+                {% trans "Signin" %}
+              </a>
+              <a class="btn primary" href="{% url userena_signup %}">
+                {% trans "Signup" %}
+              </a>
+            </form>
             {% endif %}
           </div>
         </div>

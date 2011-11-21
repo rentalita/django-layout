@@ -59,6 +59,9 @@ export @OVID@_SRC
 @OVID@_VAR="${@OVID@_HOME}"/var
 export @OVID@_VAR
 
+@OVID@_CACHE="${@OVID@_VAR}"/cache
+export @OVID@_CACHE
+
 @OVID@_DATA="${@OVID@_VAR}"/data
 export @OVID@_DATA
 

@@ -7,7 +7,8 @@ from userena.models import UserenaLanguageBaseProfile
 
 
 class Profile(UserenaLanguageBaseProfile):
-    user = models.OneToOneField(User, unique=True,
+    user = models.OneToOneField(User,
+                                unique=True,
                                 related_name=u'profile')
 
 # Local Variables:

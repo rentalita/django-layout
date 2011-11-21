@@ -15,6 +15,7 @@ TARGET="${TARGET:-develop}"
 [ $? != 0 ] && echo "ERROR!!!" && exit 1
 
 "${@OVID@_BIN}"/django-migrate.sh
+"${@OVID@_BIN}"/django-load.sh
 
 exit 0
 
