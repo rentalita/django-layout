@@ -6,6 +6,8 @@ from django.conf.urls.defaults import handler404, patterns, include, url
 from django.contrib import admin
 admin.autodiscover()
 
+from @ovid@.signals import initialized
+
 handler404 = '@ovid@.views.custom404'
 
 urlpatterns = patterns('',
@@ -15,8 +17,14 @@ urlpatterns = patterns('',
 )
 
 urlpatterns += patterns('@ovid@.views',
-    url(r'^$', 'index'),
+    url(r'^$', 'index', name='@ovid@_index'),
 )
+
+def on_initialized(sender, **kwargs):
+    pass
+
+initialized.connect(on_initialized)
+initialized.send(sender=None)
 
 # Local Variables:
 # indent-tabs-mode: nil

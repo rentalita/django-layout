@@ -7,8 +7,6 @@ TEMPLATE_DEBUG = DEBUG
 
 SITE_ID = 1
 
-DEFAULT_FROM_EMAIL = 'webmaster@localhost'
-
 MAINTENANCE_MODE = 'DEVELOPMENT'
 
 EMAIL_PORT = 1025
@@ -24,6 +22,10 @@ MIDDLEWARE_CLASSES += (
 INTERNAL_IPS = (
     '127.0.0.1',
     )
+
+DEBUG_TOOLBAR_CONFIG = {
+    'INTERCEPT_REDIRECTS': False,
+}
 
 # Local Variables:
 # indent-tabs-mode: nil

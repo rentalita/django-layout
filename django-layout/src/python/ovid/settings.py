@@ -4,9 +4,13 @@ import os
 
 import django.conf.global_settings as DEFAULT_SETTINGS
 
+from django.utils.translation import ugettext_lazy as _
+
 ADMINS = (
-    ('@Ovid@ Webmaster', 'webmaster@@ovid@.com'),
+    ('Crash Reports', 'crash-reports@@ovid@.com'),
 )
+
+DEFAULT_FROM_EMAIL = '@Ovid@ <no-reply@@ovid@.com>'
 
 MANAGERS = ADMINS
 
@@ -39,7 +43,10 @@ LOCALE_PATHS = DEFAULT_SETTINGS.LOCALE_PATHS + (
     os.environ['@OVID@_HOME'] + os.sep + 'locale',
 )
 
+MEDIA_ROOT = os.environ['@OVID@_WWW'] + os.sep + 'media'
+
 APPEND_SLASH = False
+FORCE_SCRIPT_NAME = ''
 
 # If you set this to False, Django will make some optimizations so as not
 # to load the internationalization machinery.
@@ -108,6 +115,7 @@ INSTALLED_APPS = (
     'guardian',
     'south',
     'userena',
+    'tastypie',
 )
 
 INSTALLED_APPS += (
@@ -123,7 +131,9 @@ AUTH_PROFILE_MODULE = 'profile.Profile'
 
 USERENA_DEFAULT_PRIVACY = 'closed'
 USERENA_DISABLE_PROFILE_LIST = True
+USERENA_REMEMBER_ME_DAYS = (_('a very long time'), 1024)
 USERENA_USE_HTTPS = True
+USERENA_USE_MESSAGES = False
 USERENA_WITHOUT_USERNAMES = True
 
 # A sample logging configuration. The only tangible logging

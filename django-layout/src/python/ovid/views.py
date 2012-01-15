@@ -9,7 +9,7 @@ from @ovid@.utils.decorators import \
 @require_http_methods(['GET'])
 @render_to_response_with_context_instance
 def index(request):
-    return ('@ovid@-index.html',)
+    return '@ovid@-index.html', {}
 
 
 @require_http_methods(['GET'])
@@ -20,7 +20,7 @@ def custom404(request):
     except:
         custom404_template = '@ovid@-custom404.html'
 
-    return (custom404_template,)
+    return custom404_template, {}
 
 # Local Variables:
 # indent-tabs-mode: nil
