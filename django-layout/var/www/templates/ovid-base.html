@@ -1,0 +1,114 @@
+{% load i18n %}
+
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description"
+          content="@Ovid@ {% trans "is made by" %} Django Layout">
+    <title>@Ovid@ - {% trans "Hello" %}</title>
+    <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+    <link type="text/css" rel="stylesheet"
+          href="/static/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet"
+          href="/static/overrides.min.css">
+    <link type="text/css" rel="stylesheet" media="print"
+          href="/static/print.min.css">
+    <script type="text/javascript" language="javascript"
+            src="/libjs/jquery/jquery.min.js">
+    </script>
+    <script type="text/javascript" language="javascript"
+            src="/static/bootstrap.min.js">
+    </script>
+  </head>
+  <body>
+    <div class="topbar">
+      <div class="container">
+        <div>
+          <ul class="nav">
+            {% if user.is_authenticated %}
+            <li>
+              <a class="text" href="{% url userena_profile_detail user.username %}">
+                {% trans "Dashboard" %}
+              </a>
+            </li>
+            {% endif %}
+          </ul>
+        </div>
+        <ul class="nav secondary-nav">
+          {% if user.is_authenticated %}
+          <li>
+            <a class="btn primary" href="{% url userena_signout %}">
+              {% trans "Sign Out" %}
+            </a>
+          </li>
+          {% else %}
+          <li>
+            <a class="btn primary" href="{% url userena_signin %}">
+              {% trans "Sign In" %}
+            </a>
+          </li>
+          {% endif %}
+          <li>
+            <form id="setlang" class="form-stacked" method="POST" action="/i18n/setlang/">
+              {% csrf_token %}
+              <input name="next" type="hidden" value="{{ request.path }}" />
+              <div class="clearfix">
+                <div class="input">
+                  <select id="language" class="input-small" name="language" onchange="$('#setlang').submit()">
+                    {% for lang in LANGUAGES %}
+                    <option value="{{ lang.0 }}" {% if LANGUAGE_CODE == lang.0 %}selected{% endif %}>
+                      {{ lang.1 }}
+                    </option>
+                    {% endfor %}
+                  </select>
+                </div>
+              </div>
+              <noscript>
+                <input type="submit" value="{% trans "Set language" %}" />
+              </noscript>
+            </form>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    {% if messages %}
+    <div class="container">
+      <div class="row">
+        <div class="span10 offset3">
+          {% for message in messages %}
+          <div class="alert-message block-message {% if message.tags %}{{ message.tags }}{% endif %}" data-alert="alert">
+            <a class="close" href="#">&times;</a>
+            <p>
+              {{ message|safe }}
+            </p>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    {% endif %}
+
+    {% block container_content %}{% endblock %}
+
+    <footer>
+      <p>
+        @Ovid@ {% trans "is made by" %}
+        <a href="https://github.com/software6/django-layout">Django Layout</a>.
+      </p>
+    </footer>
+
+    {% ifequal MAINTENCE_MODE "PRODUCTION" %}
+    <script type="text/javascript">
+      //<![CDATA[
+    <!--
+        //-->
+    //]]>
+    </script>
+    {% endifequal %}
+
+  </body>
+</html>
