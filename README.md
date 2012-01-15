@@ -19,14 +19,14 @@ variable names.
 ## QUICK START
 
 Consult the
-[README.md](https://github.com/software6/django-layout/blob/master/django-layout/README.md)
+[README.md](https://github.com/rentalita/django-layout/blob/master/django-layout/README.md)
 created by django-layout.sh.
 
 ## CONTRIBUTE
 
-https://github.com/software6/django-layout
+https://github.com/rentalita/django-layout
 
 ## LICENSE
 
-Django Layout is brought to you by [Software 6](http://software6.net/)
+Django Layout is brought to you by [Rentalita](http://rentalita.net/)
 and is in the public domain.
