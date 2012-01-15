@@ -2,15 +2,15 @@
     {
         "fields": {
             "domain": "localhost:8443",
-            "name": "The @Ovid@ Development Team"
+            "name": "@Ovid@.com"
         },
         "model": "sites.site",
         "pk": 1
     },
     {
         "fields": {
-            "domain": "@ovid@.com",
-            "name": "The @Ovid@ Team"
+            "domain": "www.@ovid@.com",
+            "name": "@Ovid@.com"
         },
         "model": "sites.site",
         "pk": 2
