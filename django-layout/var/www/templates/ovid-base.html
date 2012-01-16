@@ -49,7 +49,12 @@
               </a>
             </li>
             {% else %}
-            <li>
+            <li style="margin-left: 5px;">
+              <a class="btn primary" href="{% url userena_signup %}">
+                {% trans "Sign Up" %}
+              </a>
+            </li>
+            <li style="margin-left: 5px;">
               <a class="btn primary" href="{% url userena_signin %}">
                 {% trans "Sign In" %}
               </a>
