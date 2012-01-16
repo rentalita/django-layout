@@ -2,12 +2,14 @@
 {% load i18n %}
 
 {% block container_content %}
-<div class="hero-unit">
-  <h1 style="font-size: +3em">
-    {% trans "Welcome to" %}
-    <a href="{% url @ovid@_index %}">
-      @Ovid@
-    </a>
-  </h1>
+<div class="container">
+  <div class="hero-unit">
+    <h1>
+      {% trans "Welcome to" %}
+      <a href="{% url @ovid@_index %}">
+        @Ovid@
+      </a>
+    </h1>
+  </div>
 </div>
 {% endblock %}
