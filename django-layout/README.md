@@ -9,10 +9,6 @@ This runs `python setup.py develop` (more or less).
 
     ./build.sh
 
-    # Load the development and production sites.
-    # See also: var/data/django-load.json.
-    ./bin/django-load.sh
-
     # Create a dummy SSL certificate.
     ./bin/make-ssl-cert.sh
 
