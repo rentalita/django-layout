@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-01-16 15:37+0000\n"
+"POT-Creation-Date: 2012-02-03 18:21+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,39 +17,38 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: src/python/@ovid@/settings.py:134
+#: src/python/layoutdemo/settings.py:135
 msgid "a very long time"
 msgstr "un largo tiempo"
 
-#: var/www/templates/@ovid@-base.html:8
-#: var/www/templates/@ovid@-base.html:107
-msgid "is made by"
-msgstr "es hecho por"
+#: src/python/layoutdemo/default/templates/default/index.html:8
+msgid "Welcome to"
+msgstr "Bienvenido a"
 
-#: var/www/templates/@ovid@-base.html:10
-msgid "Hello"
-msgstr "Hola"
-
-#: var/www/templates/@ovid@-base.html:39
-msgid "Dashboard"
-msgstr "Dashboard"
-
-#: var/www/templates/@ovid@-base.html:48
-msgid "Sign Out"
-msgstr "Salir"
-
-#: var/www/templates/@ovid@-base.html:54
-msgid "Sign Up"
-msgstr "Regístrate"
-
-#: var/www/templates/@ovid@-base.html:59
-msgid "Sign In"
-msgstr "Ingresar"
-
-#: var/www/templates/@ovid@-custom404.html:12
+#: var/www/templates/404.html:12 var/www/templates/500.html:12
 msgid "Oops!"
 msgstr "¡Oy!"
 
-#: var/www/templates/@ovid@-index.html:8
-msgid "Welcome to"
-msgstr "Bienvenido a"
+#: var/www/templates/base.html:8 var/www/templates/base.html.py:107
+msgid "is made by"
+msgstr "es hecho por"
+
+#: var/www/templates/base.html:10
+msgid "Hello"
+msgstr "Hola"
+
+#: var/www/templates/base.html:39
+msgid "Dashboard"
+msgstr "Dashboard"
+
+#: var/www/templates/base.html:48
+msgid "Sign Out"
+msgstr "Salir"
+
+#: var/www/templates/base.html:54
+msgid "Sign Up"
+msgstr "Regístrate"
+
+#: var/www/templates/base.html:59
+msgid "Sign In"
+msgstr "Ingresar"
