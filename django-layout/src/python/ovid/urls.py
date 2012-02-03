@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from django.conf.urls.defaults import handler404, patterns, include, url
+from django.conf.urls.defaults import patterns, include, url
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
@@ -8,16 +8,14 @@ admin.autodiscover()
 
 from @ovid@.signals import initialized
 
-handler404 = '@ovid@.views.custom404'
-
 urlpatterns = patterns('',
-    url(r'^i18n/', include('django.conf.urls.i18n')),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^i18n/', include('django.conf.urls.i18n')),
     url(r'^accounts/', include('userena.urls')),
 )
 
-urlpatterns += patterns('@ovid@.views',
-    url(r'^$', 'index', name='@ovid@_index'),
+urlpatterns += patterns('',
+    url(r'', include('@ovid@.default.urls')),
 )
 
 def on_initialized(sender, **kwargs):

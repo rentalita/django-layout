@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content_wrapper %}
+<div class="hero-unit">
+  <h1>
+    <a href="{% url @ovid@_index %}">
+      @Ovid@
+    </a>
+  </h1>
+  <p>
+    500 {% trans "Oops!" %}
+  </p>
+</div>
+{% endblock %}

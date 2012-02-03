@@ -2,8 +2,10 @@
 
 from django.conf.urls.defaults import patterns, include, url
 
+import @ovid@.default.urls
+
 urlpatterns = patterns('',
-    url(r'', include('@ovid@.urls')),
+    url(r'^default/', include(@ovid@.default.urls)),
 )
 
 # Local Variables:

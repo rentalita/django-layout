@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from .. import development
-from .. import production
 from .. import urls
+from .. import views
 
 # Local Variables:
 # indent-tabs-mode: nil

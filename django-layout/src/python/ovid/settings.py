@@ -4,7 +4,7 @@ import os
 
 import django.conf.global_settings as DEFAULT_SETTINGS
 
-from django.utils.translation import ugettext_lazy as _
+gettext = lambda s: s
 
 ADMINS = (
     ('Crash Reports', 'crash-reports@@ovid@.com'),
@@ -119,6 +119,7 @@ INSTALLED_APPS = (
 )
 
 INSTALLED_APPS += (
+    '@ovid@.default',
     '@ovid@.profile',
 )
 
@@ -131,7 +132,7 @@ AUTH_PROFILE_MODULE = 'profile.Profile'
 
 USERENA_DEFAULT_PRIVACY = 'closed'
 USERENA_DISABLE_PROFILE_LIST = True
-USERENA_REMEMBER_ME_DAYS = (_('a very long time'), 1024)
+USERENA_REMEMBER_ME_DAYS = (gettext('a very long time'), 1024)
 USERENA_USE_HTTPS = True
 USERENA_USE_MESSAGES = False
 USERENA_WITHOUT_USERNAMES = True
