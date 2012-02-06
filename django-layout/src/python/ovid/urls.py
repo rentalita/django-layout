@@ -9,12 +9,12 @@ admin.autodiscover()
 from @ovid@.signals import initialized
 
 urlpatterns = patterns('',
-    url(r'^admin/', include(admin.site.urls)),
-    url(r'^i18n/', include('django.conf.urls.i18n')),
     url(r'^accounts/', include('userena.urls')),
 )
 
 urlpatterns += patterns('',
+    url(r'^i18n/', include('django.conf.urls.i18n')),
+    url(r'^admin/', include(admin.site.urls)),
     url(r'', include('@ovid@.default.urls')),
 )
 
