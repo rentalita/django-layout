@@ -1,0 +1,7 @@
+@@OVID@_LOG@/*.log {
+    weekly
+    rotate 10
+    copytruncate
+    compress
+    missingok
+}

@@ -4,12 +4,6 @@ export PACKAGE
 VERSION="0.0.1"
 export VERSION
 
-SQLITE3=$(which sqlite3)
-export SQLITE3
-
-SQLITE3FLAGS=
-export SQLITE3FLAGS
-
 PYTHON="$(which python)"
 export PYTHON
 
@@ -32,14 +26,6 @@ export NOSETESTS
 
 NOSETESTSFLAGS="--with-coverage --cover-erase --cover-html"
 export NOSETESTSFLAGS
-
-DJANGO_SETTINGS_MODULE="@ovid@.settings"
-
-if [ ! "${@OVID@_TESTS}" = "" ]; then
-    DJANGO_SETTINGS_MODULE="@ovid@.tests.settings"
-fi
-
-export DJANGO_SETTINGS_MODULE
 
 @OVID@_HOME=$(cd "${@OVID@_HOME}"; pwd)
 export @OVID@_HOME
@@ -100,6 +86,33 @@ if [ ! -f "${@OVID@_HOME}"/setup.cfg ]; then
         -e "s#\@PACKAGE\@#${PACKAGE}#g;" \
         "${@OVID@_HOME}"/setup.cfg.in > "${@OVID@_HOME}"/setup.cfg
 fi
+
+if [ ! -f "${@OVID@_ETC}"/logrotate.conf ]; then
+    cp "${@OVID@_ETC}"/logrotate.conf.in "${@OVID@_ETC}"/logrotate.conf
+    for PATTERNS in $(env | grep "^@OVID@"); do
+        perl -pi -e '@xYz = split(/=/, "'${PATTERNS}'"); s#\@$xYz[0]\@#$xYz[1]#g;' \
+            "${@OVID@_ETC}"/logrotate.conf
+    done
+fi
+
+MAINTENANCE_MODE="$(realpath ${@OVID@_ETC}/lighttpd.conf | \
+    perl -wlne 'print $1 if /lighttpd-(\w+).conf/')"
+
+ASROOT=
+
+if [ "${MAINTENANCE_MODE}" = "production" ]; then
+    ASROOT="sudo"
+fi
+
+export ASROOT
+
+if [ ! "${@OVID@_TESTS}" = "" ]; then
+    DJANGO_SETTINGS_MODULE="@ovid@.tests.settings"
+else
+    DJANGO_SETTINGS_MODULE="@ovid@.${MAINTENANCE_MODE}"
+fi
+
+export DJANGO_SETTINGS_MODULE
 
 # Local Variables:
 # indent-tabs-mode: nil

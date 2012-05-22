@@ -4,7 +4,7 @@ from django.conf import settings
 
 
 def maintenance_mode(request):
-    return {'MAINTENCE_MODE': settings.MAINTENANCE_MODE}
+    return {'MAINTENANCE_MODE': settings.MAINTENANCE_MODE}
 
 # Local Variables:
 # indent-tabs-mode: nil

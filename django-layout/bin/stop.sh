@@ -5,8 +5,8 @@ export @OVID@_HOME
 
 . "${@OVID@_HOME}"/etc/common
 
-"${@OVID@_BIN}"/django-manage.sh syncdb --noinput
-"${@OVID@_BIN}"/django-manage.sh migrate
+"${@OVID@_BIN}"/lighttpd.sh stop
+"${@OVID@_BIN}"/celeryd.sh stop
 
 exit 0
 

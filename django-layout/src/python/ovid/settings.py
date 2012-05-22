@@ -4,6 +4,9 @@ import os
 
 import django.conf.global_settings as DEFAULT_SETTINGS
 
+import djcelery
+djcelery.setup_loader()
+
 gettext = lambda s: s
 
 ADMINS = (
@@ -93,8 +96,7 @@ MIDDLEWARE_CLASSES = (
 )
 
 AUTHENTICATION_BACKENDS = (
-    'userena.backends.UserenaAuthenticationBackend',
-    'guardian.backends.ObjectPermissionBackend',
+    'lutefisk.backends.LutefiskAuthenticationBackend',
     'django.contrib.auth.backends.ModelBackend',
 )
 
@@ -111,11 +113,9 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.admin',
-    'easy_thumbnails',
-    'guardian',
     'south',
-    'userena',
-    'tastypie',
+    'lutefisk',
+    'djcelery',
 )
 
 INSTALLED_APPS += (
@@ -125,17 +125,34 @@ INSTALLED_APPS += (
 
 ANONYMOUS_USER_ID = -1
 
+if 'CANONICAL_URL' in os.environ:
+    SITE_URL = os.environ['CANONICAL_URL']
+else:
+    SITE_URL = '/'
+
 LOGIN_REDIRECT_URL = '/accounts/%(username)s/'
 LOGIN_URL = '/accounts/signin/'
-LOGOUT_URL = '/accounts/signout/'
+LOGOUT_URL = '/signout/'
 AUTH_PROFILE_MODULE = 'profile.Profile'
 
-USERENA_DEFAULT_PRIVACY = 'closed'
-USERENA_DISABLE_PROFILE_LIST = True
-USERENA_REMEMBER_ME_DAYS = (gettext('a very long time'), 1024)
-USERENA_USE_HTTPS = True
-USERENA_USE_MESSAGES = False
-USERENA_WITHOUT_USERNAMES = True
+from lutefisk.defaults import *
+
+LUTEFISK_DEFAULT_PRIVACY = 'closed'
+LUTEFISK_DISABLE_PROFILE_LIST = True
+LUTEFISK_REMEMBER_ME_DAYS = (gettext('a very long time'), 1024)
+LUTEFISK_USE_HTTPS = True
+LUTEFISK_USE_MESSAGES = False
+LUTEFISK_WITHOUT_USERNAMES = True
+
+# BROKER_HOST = 'localhost'
+# BROKER_PORT = 5672
+# BROKER_USER = 'guest'
+# BROKER_PASSWORD = 'guest'
+# BROKER_VHOST = '/'
+
+CELERY_IMPORTS = (
+    '@ovid@.tasks',
+)
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to

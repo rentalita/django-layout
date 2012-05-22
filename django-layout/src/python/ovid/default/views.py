@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
-from django.views.generic import TemplateView
+from django.template.response import TemplateResponse
 
 
-class IndexView(TemplateView):
-    template_name = 'default/index.html'
+def index(request):
+    return TemplateResponse(request, 'default/index.html')
 
 # Local Variables:
 # indent-tabs-mode: nil

@@ -5,8 +5,8 @@ export @OVID@_HOME
 
 . "${@OVID@_HOME}"/etc/common
 
-"${@OVID@_BIN}"/django-manage.sh syncdb --noinput
-"${@OVID@_BIN}"/django-manage.sh migrate
+${ASROOT} logrotate --state "${@OVID@_RUN}"/logrotate.state \
+    "${@OVID@_ETC}"/logrotate.conf "$@"
 
 exit 0
 

@@ -1,8 +1,12 @@
 #!/usr/bin/env python
 
+import os
+
 from django.core.handlers.wsgi import WSGIHandler
 from flup.server.fcgi import WSGIServer
 
+
+os.environ['CELERY_LOADER'] = 'django'
 
 WSGIServer(WSGIHandler()).run()
 

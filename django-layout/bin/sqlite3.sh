@@ -5,7 +5,7 @@ export @OVID@_HOME
 
 . "${@OVID@_HOME}"/etc/common
 
-"${SQLITE3}" ${SQLITE3FLAGS} ${@OVID@_SQLITE3FLAGS} "$@"
+sqlite3 ${@OVID@_SQLITE3FLAGS} "$@"
 
 # Local Variables:
 # indent-tabs-mode: nil

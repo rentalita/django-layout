@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh -e
 
 @OVID@_HOME="$(dirname $0)"/..
 export @OVID@_HOME
@@ -9,6 +9,8 @@ TARGET="$@"
 TARGET="${TARGET:-help}"
 
 "${@OVID@_BIN}"/python.sh "${@OVID@_BIN}"/django-manage.py ${TARGET} --settings="${DJANGO_SETTINGS_MODULE}" -v 0
+
+exit 0
 
 # Local Variables:
 # indent-tabs-mode: nil

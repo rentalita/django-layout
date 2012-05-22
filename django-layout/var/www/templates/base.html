@@ -35,8 +35,13 @@
           <ul class="nav">
             {% if user.is_authenticated %}
             <li>
-              <a href="{% url userena_profile_detail user.username %}">
+              <a href="{% url lutefisk_profile_detail %}">
                 {% trans "Dashboard" %}
+              </a>
+            </li>
+            <li>
+              <a href="{% url lutefisk_profile_detail %}">
+                {{ user.email }}
               </a>
             </li>
             {% endif %}
@@ -44,18 +49,18 @@
           <ul class="nav secondary-nav">
             {% if user.is_authenticated %}
             <li>
-              <a class="btn primary" href="{% url userena_signout %}">
+              <a class="btn primary" href="{% url lutefisk_signout %}">
                 {% trans "Sign Out" %}
               </a>
             </li>
             {% else %}
-            <li style="margin-left: 5px;">
-              <a class="btn primary" href="{% url userena_signup %}">
+            <li>
+              <a class="btn primary" href="{% url lutefisk_signup %}">
                 {% trans "Sign Up" %}
               </a>
             </li>
-            <li style="margin-left: 5px;">
-              <a class="btn primary" href="{% url userena_signin %}">
+            <li>
+              <a class="btn primary" href="{% url lutefisk_signin %}">
                 {% trans "Sign In" %}
               </a>
             </li>
@@ -99,7 +104,7 @@
     </div>
     {% endif %}
 
-    {% block container_content %}{% endblock %}
+    {% block content %}{% endblock %}
 
     <div class="container">
       <footer>
@@ -110,9 +115,9 @@
       </footer>
     </div>
 
-    {% ifequal MAINTENCE_MODE "PRODUCTION" %}
+    {% ifequal MAINTENANCE_MODE "PRODUCTION" %}
     <script type="text/javascript">
-    // TODO: Analytics.
+      // TODO: Analytics.
     </script>
     {% endifequal %}
 

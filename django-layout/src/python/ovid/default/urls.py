@@ -6,7 +6,7 @@ from . import tasks
 from . import views
 
 urlpatterns = patterns('',
-    url(r'^$', views.IndexView.as_view(), name='@ovid@_index'),
+    url(r'^$', views.index, name='@ovid@_index'),
 )
 
 # Local Variables:

@@ -9,7 +9,7 @@ admin.autodiscover()
 from @ovid@.signals import initialized
 
 urlpatterns = patterns('',
-    url(r'^accounts/', include('userena.urls')),
+    url(r'^accounts/', include('lutefisk.urls')),
 )
 
 urlpatterns += patterns('',

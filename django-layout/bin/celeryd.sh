@@ -15,11 +15,13 @@ OPTION="$1"
 
 case "${OPTION}" in
     start)
-	    ${ASROOT} lighttpd -f "${@OVID@_ETC}"/lighttpd.conf
+        "${@OVID@_BIN}"/django-manage.sh celeryd_multi -q start default -E \
+            --logfile="${@OVID@_LOG}"/celeryd-%n.log \
+            --pidfile="${@OVID@_RUN}"/celeryd-%n.pid
 	;;
     stop)
-	    [ -f "${@OVID@_RUN}"/lighttpd.pid ] && \
-	        ${ASROOT} kill $(cat "${@OVID@_RUN}"/lighttpd.pid)
+        "${@OVID@_BIN}"/django-manage.sh celeryd_multi -q stop default \
+            --pidfile="${@OVID@_RUN}"/celeryd-%n.pid
 	;;
     restart)
             "$0" stop

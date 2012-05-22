@@ -3,10 +3,10 @@
 from django.contrib.auth.models import User
 from django.db import models
 
-from userena.models import UserenaLanguageBaseProfile
+from lutefisk.models import LutefiskLanguageBaseProfile
 
 
-class Profile(UserenaLanguageBaseProfile):
+class Profile(LutefiskLanguageBaseProfile):
     user = models.OneToOneField(User,
                                 unique=True,
                                 verbose_name=u'user',
